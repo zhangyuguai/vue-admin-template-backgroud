@@ -89,6 +89,11 @@ public class Permission implements Serializable {
     private Integer orderNum;
 
     private String redirect;
+    
+     /**
+     * 是否在侧边栏隐藏该路由(0-隐藏，1不隐藏)
+     */
+    private Integer hidden;
 
     /**
      * 是否删除(0-未删除，1-已删除)
