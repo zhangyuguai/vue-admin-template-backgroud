@@ -39,6 +39,7 @@ public class MenuTree {
                     } else {
                         router.setComponent(item.getUrl());//具体的组件
                         router.setAlwaysShow(false);//折叠路由
+                        router.setHidden(0==item.getHidden());//是否隐藏该路由(0-隐藏，1-不隐藏)
                     }
                     //设置meta信息
                     router.setMeta(router.new Meta(item.getLabel(),
