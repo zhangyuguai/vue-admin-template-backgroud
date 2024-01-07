@@ -78,7 +78,7 @@ public class UserController {
         List<Permission> collect = permissionList.stream()
                 .filter(item -> item != null && item.getType() !=2)
                 .collect(Collectors.toList());
-        Role role = roleService.getRoleByUid(user.getId());
+        Role[] role = roleService.getRoleByUid(user.getId());
         //转化成router
         List<RouterVo> routerVoList = MenuTree.makeRouter(collect, 0L);
 
@@ -88,7 +88,7 @@ public class UserController {
         userInfo.setAvatar(user.getAvatar());
         userInfo.setId(user.getId());
         if (!ObjectUtils.isEmpty(role)) {
-            userInfo.setIntroduction(role.getRemark());
+            userInfo.setIntroduction(role[0].getRemark());
         }
         userInfo.setRoles(roleList);
         userInfo.setMenus(routerVoList);

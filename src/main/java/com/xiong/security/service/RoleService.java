@@ -16,7 +16,7 @@ public interface RoleService extends IService<Role> {
 
     List<String> getRoleListByUid(Long id);
 
-    Role getRoleByUid(Long uid);
+    Role[] getRoleByUid(Long uid);
 
     /**
      * 根据用户查询角色列表

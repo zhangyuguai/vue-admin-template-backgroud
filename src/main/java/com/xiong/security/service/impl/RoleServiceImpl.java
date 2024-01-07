@@ -43,7 +43,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role>
     }
 
     @Override
-    public Role getRoleByUid(Long uid) {
+    public Role[] getRoleByUid(Long uid) {
         return roleMapper.getRoleByUid(uid);
     }
 
@@ -107,6 +107,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role>
         //删除角色之前的权限
         roleMapper.deleteRolePermissionByRoleId(roleId);
         //保存角色新权限
+        if(permissionIds.size()==0) {
+            return true;
+        }
         return roleMapper.saveRolePermission(roleId,permissionIds);
     }
 

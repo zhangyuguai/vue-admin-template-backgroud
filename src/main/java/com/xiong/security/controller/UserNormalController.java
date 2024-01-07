@@ -52,7 +52,7 @@ public class UserNormalController {
     }
 
     @PostMapping("/add")
-    @PreAuthorize("hasAnyRole('sys:user:add')")
+    @PreAuthorize("hasAnyAuthority('sys:user:add')")
     public Result addUser(@RequestBody User user){
         //检查用户名是否已被使用
         User userByUsername = userService.getUserByUsername(user.getUsername());
@@ -68,7 +68,7 @@ public class UserNormalController {
     }
 
     @PutMapping("/update")
-    @PreAuthorize("hasAnyRole('sys:user:update')")
+    @PreAuthorize("hasAnyAuthority('sys:user:edit')")
     public Result updateUser(@RequestBody User user){
         //检查用户名是否已被使用
         User item = userService.getUserByUsername(user.getUsername());
@@ -82,7 +82,7 @@ public class UserNormalController {
     }
 
     @DeleteMapping("/delete/{id}")
-    @PreAuthorize("hasAnyRole('sys:user:delete')")
+    @PreAuthorize("hasAnyAuthority('sys:user:delete')")
     public Result deleteUser(@PathVariable Long id){
 
         if (userService.deleteUserById(id)) {
@@ -125,7 +125,7 @@ public class UserNormalController {
      * @return
      */
     @PostMapping("/saveUserRole")
-    @PreAuthorize("hasAnyRole('sys:user:add')")
+    @PreAuthorize("hasAnyAuthority('sys:user:add')")
     public Result saveUserRole(@RequestBody UserRoleDto userRoleDto){
         if (userService.saveUserRole(userRoleDto.getUserId(),userRoleDto.getRoleIds())) {
             return new Result(200,"角色分配成功",null,true);

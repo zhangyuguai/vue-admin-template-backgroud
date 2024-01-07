@@ -19,7 +19,7 @@ public interface RoleMapper extends BaseMapper<Role> {
 
     List<String> getRoleListByUid(@Param("uid") Long uid);
 
-    Role getRoleByUid(@Param("uid") Long uid);
+    Role[] getRoleByUid(@Param("uid") Long uid);
 
     //查询被使用角色数量
     @Select("select count(*)from sys_user_role where role_id=#{roleId}")

@@ -65,6 +65,7 @@ public class Result {
         this.code= ResultCode.SUCCESS.getCode();
         this.msg= ResultCode.SUCCESS.getMsg();
         this.data=data;
+        this.success=true;
     }
 
 
