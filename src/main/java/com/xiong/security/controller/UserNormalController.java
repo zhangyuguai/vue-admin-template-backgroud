@@ -48,7 +48,7 @@ public class UserNormalController {
 
         userService.findUserListByPage(page,userQueryVo);
 
-        return new Result(page);
+        return new Result(200,"查询成功",page,true);
     }
 
     @PostMapping("/add")

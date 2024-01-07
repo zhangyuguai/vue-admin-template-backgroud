@@ -32,7 +32,7 @@
     <select id="findPermissionListByUserId" resultType="com.xiong.security.entity.Permission">
         select
             DISTINCT
-            p.id,p.parent_id,p.label,p.`code`,p.url,p.type,p.icon,p.remark,p.path,p.name
+            p.id,p.parent_id,p.label,p.`code`,p.url,p.type,p.icon,p.remark,p.path,p.name,p.hidden
         from
             sys_user as u
                 left join sys_user_role as ur on u.id = ur.user_id
